@@ -30,6 +30,16 @@ class WaterLogService{
             throw error;
         }
      }
+
+     async deleteWaterLog(id){
+        try{
+            const deleteWaterLog = await this.waterLogRepository.deleteWaterLog(id);
+            return deleteWaterLog;
+        }catch(err){
+            console.log("Something went wrong at service layer for delete Log");
+            throw err;
+        }
+     }
 }
 
 module.exports=WaterLogService;

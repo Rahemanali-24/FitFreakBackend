@@ -25,6 +25,20 @@ class WorkOutLogRepository{
           throw error;
       }
   }
+
+  async deleteWorkOutLog(id) {
+    try {
+      await WorkoutLog.destroy({
+        where: {
+          id: id,
+        },
+      });
+      return true;
+    } catch (error) {
+      console.log("Something went wrong in the delete repository layer");
+      throw { error };
+    }
+  }
 }
 
 module.exports = WorkOutLogRepository;

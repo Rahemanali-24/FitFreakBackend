@@ -20,4 +20,10 @@ router.get('/getFoodIntake',FoodIntakeController.getFoodIntake);
 router.get('/getWorkOutLog',WorkOutLogController.getWorkOut);
 router.get('/getWaterLog',WaterLogController.getWaterLog);
 
+
+//Delete Apis
+router.delete('/deleteWaterLog/:id',WaterLogController.deleteWaterLog);
+router.delete('/deleteWorkOutLog/:id',WorkOutLogController.deleteWorkOutLog);
+router.delete('/deleteFoodIntakeLog/:id',FoodIntakeController.deleteFoodInTakeLog);
+
 module.exports = router;

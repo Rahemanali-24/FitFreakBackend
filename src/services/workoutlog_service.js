@@ -30,6 +30,18 @@ class WorkOutLogService{
             throw error;
         }
      }
+
+     async deleteWorkOutLog(id){
+        try{
+            const deleteWorkOutLog = await this.workOutLogRepository.deleteWorkOutLog(id);
+            return deleteWorkOutLog;
+        }catch(err){
+            console.log("Something went wrong at service layer for delete Log");
+            throw err;
+        }
+     }
+
+     
 }
 
 module.exports=WorkOutLogService;

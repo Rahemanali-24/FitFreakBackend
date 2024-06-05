@@ -30,6 +30,16 @@ class FoodIntakeService{
             throw error;
         }
      }
+
+     async deleteUserFoodLog(id){
+        try{
+            const deleteFoodLog = await this.foodInTakeRepository.deleteFoodInTakeLog(id);
+            return deleteFoodLog;
+        }catch(err){
+            console.log("Something went wrong at service layer for delete Log");
+            throw err;
+        }
+     }
 }
 
 module.exports=FoodIntakeService;

@@ -44,7 +44,28 @@ const getWaterLog = async(req,res)=>{
     }
 }
 
+const deleteWaterLog = async (req, res) => {
+    try {
+        const response = await waterLogService.deleteWaterLog(req.params.id);
+        return res.status(200).json({
+            data: response,
+            success: true,
+            message: 'Successfully deleted a waterLog',
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to delete the city',
+            err: error
+        });
+    }
+}
+
 module.exports ={
     addWaterLog,
-    getWaterLog
+    getWaterLog,
+    deleteWaterLog
 }

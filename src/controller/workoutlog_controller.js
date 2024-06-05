@@ -44,7 +44,28 @@ const getWorkOut = async(req,res)=>{
     }
 }
 
+const deleteWorkOutLog = async (req, res) => {
+    try {
+        const response = await workOutLogService.deleteWorkOutLog(req.params.id);
+        return res.status(200).json({
+            data: response,
+            success: true,
+            message: 'Successfully deleted a WorkOutLog',
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to delete the WorkOutLog',
+            err: error
+        });
+    }
+}
+
 module.exports ={
     addWorkout,
-    getWorkOut
+    getWorkOut,
+    deleteWorkOutLog
 }
