@@ -40,6 +40,16 @@ class WaterLogService{
             throw err;
         }
      }
+
+     async updateWaterLog(id, data) {
+        try {
+            const response = await this.waterLogRepository.updateWaterLog(id, data);
+            return response;
+        } catch (error) {
+            console.log("Something went wrong at service layer");
+            throw {error};
+        }
+    }
 }
 
 module.exports=WaterLogService;

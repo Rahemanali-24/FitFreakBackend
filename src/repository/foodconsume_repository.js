@@ -37,6 +37,23 @@ class FoodInTakeRepository{
       throw { error };
     }
   }
+
+
+  async updateFoodInTakeLog(id, data) {
+    try {
+      await FoodInTake.update(data, {
+        where: {
+          id: id,
+        },
+      });
+      return true;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
 }
+
+
 
 module.exports = FoodInTakeRepository;

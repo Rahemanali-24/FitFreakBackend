@@ -64,8 +64,29 @@ const deleteWorkOutLog = async (req, res) => {
     }
 }
 
+const updateWorkOutLog = async (req, res) => {
+    try {
+        const response = await workOutLogService.updateWorkOutLog(req.params.id, req.body);
+        return res.status(200).json({
+            data: response,
+            success: true,
+            err: {},
+            message: 'Successfully updated the WorkOutLog'
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to update the WorkOutLog',
+            err: error
+        });
+    }
+}
+
 module.exports ={
     addWorkout,
     getWorkOut,
-    deleteWorkOutLog
+    deleteWorkOutLog,
+    updateWorkOutLog
 }

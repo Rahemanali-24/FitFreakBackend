@@ -26,4 +26,8 @@ router.delete('/deleteWaterLog/:id',WaterLogController.deleteWaterLog);
 router.delete('/deleteWorkOutLog/:id',WorkOutLogController.deleteWorkOutLog);
 router.delete('/deleteFoodIntakeLog/:id',FoodIntakeController.deleteFoodInTakeLog);
 
+//Update Apis
+router.patch('/updateWaterLog/:id',WaterLogController.updateWaterLog);
+router.patch('/updateWorkOutLog/:id',WorkOutLogController.updateWorkOutLog);
+router.patch('/updateFoodInTakeLog/:id',FoodIntakeController.updateFoodInTakeLog);
 module.exports = router;

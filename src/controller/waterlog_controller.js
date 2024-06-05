@@ -64,8 +64,31 @@ const deleteWaterLog = async (req, res) => {
     }
 }
 
+
+
+const updateWaterLog = async (req, res) => {
+    try {
+        const response = await waterLogService.updateWaterLog(req.params.id, req.body);
+        return res.status(200).json({
+            data: response,
+            success: true,
+            err: {},
+            message: 'Successfully updated the WaterLog'
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to update the WaterLog',
+            err: error
+        });
+    }
+}
+
 module.exports ={
     addWaterLog,
     getWaterLog,
-    deleteWaterLog
+    deleteWaterLog,
+    updateWaterLog
 }

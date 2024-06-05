@@ -36,6 +36,20 @@ class WaterLogRepository {
       throw { error };
     }
   }
+
+  async updateWaterLog(id, data) {
+    try {
+      await WaterLog.update(data, {
+        where: {
+          id: id,
+        },
+      });
+      return true;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
 }
 
 module.exports = WaterLogRepository;

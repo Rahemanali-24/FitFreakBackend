@@ -66,11 +66,32 @@ const deleteFoodInTakeLog = async (req, res) => {
 }
 
 
+const updateFoodInTakeLog = async (req, res) => {
+    try {
+        const response = await foodIntakeService.updateUserFoodLog(req.params.id, req.body);
+        return res.status(200).json({
+            data: response,
+            success: true,
+            err: {},
+            message: 'Successfully updated the FoodIntake Log'
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to update the FoodIntake Log',
+            err: error
+        });
+    }
+}
+
 
 
 
 module.exports ={
     addFoodIntake,
     getFoodIntake,
-    deleteFoodInTakeLog
+    deleteFoodInTakeLog,
+    updateFoodInTakeLog
 }

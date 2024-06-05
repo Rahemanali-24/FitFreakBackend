@@ -39,6 +39,22 @@ class WorkOutLogRepository{
       throw { error };
     }
   }
+
+
+  async updateWorkOutLog(id, data) {
+    try {
+      await WorkoutLog.update(data, {
+        where: {
+          id: id,
+        },
+      });
+      return true;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
+  
 }
 
 module.exports = WorkOutLogRepository;
