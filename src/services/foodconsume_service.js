@@ -18,6 +18,18 @@ class FoodIntakeService{
             throw error;
         }
      }
+
+     async getUserFoodIntake(){
+        try{    
+
+            const getFoodIntake = await this.foodInTakeRepository.getFoodIntake();
+            return getFoodIntake;
+
+        }catch(error){
+            console.log("Something went wrong at service layer for getWater Log");
+            throw error;
+        }
+     }
 }
 
 module.exports=FoodIntakeService;

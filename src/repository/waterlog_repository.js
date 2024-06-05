@@ -13,6 +13,17 @@ class WaterLogRepository{
           throw {error};
         }
     }
+
+
+    async getWaterLog() {
+      try {
+          const getWaterLogData = await WaterLog.findAll();
+          return getWaterLogData;
+      } catch (error) {
+          console.log("Something went wrong in getALl Water Log in repository");
+          throw error;
+      }
+  }
 }
 
 module.exports = WaterLogRepository;

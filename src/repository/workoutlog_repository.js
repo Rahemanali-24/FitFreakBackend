@@ -13,6 +13,18 @@ class WorkOutLogRepository{
           throw {error};
         }
     }
+
+ 
+
+    async getWorkOutLog() {
+      try {
+          const getWorkOut = await WorkoutLog.findAll();
+          return getWorkOut;
+      } catch (error) {
+          console.log("Something went wrong in getALl in repository");
+          throw error;
+      }
+  }
 }
 
 module.exports = WorkOutLogRepository;

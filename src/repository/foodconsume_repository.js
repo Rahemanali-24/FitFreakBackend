@@ -13,6 +13,16 @@ class FoodInTakeRepository{
           throw {error};
         }
     }
+
+    async getFoodIntake() {
+      try {
+          const getFoodData = await FoodInTake.findAll();
+          return getFoodData;
+      } catch (error) {
+          console.log("Something went wrong in getALl Food Intake Log in repository");
+          throw error;
+      }
+  }
 }
 
 module.exports = FoodInTakeRepository;

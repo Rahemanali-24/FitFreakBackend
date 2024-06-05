@@ -18,6 +18,18 @@ class WaterLogService{
             throw error;
         }
      }
+
+     async getUserWaterLog(){
+        try{    
+
+            const getWaterLog = await this.waterLogRepository.getWaterLog();
+            return getWaterLog;
+
+        }catch(error){
+            console.log("Something went wrong at service layer for getWater Log");
+            throw error;
+        }
+     }
 }
 
 module.exports=WaterLogService;

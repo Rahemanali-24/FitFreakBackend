@@ -14,7 +14,19 @@ class WorkOutLogService{
             return addWorkout;
 
         }catch(error){
-            console.log("Something went wrong at service layer for addWorkoutLog");
+            console.log("Something went wrong at service layer for GetWorkout");
+            throw error;
+        }
+     }
+
+     async getUserWorkOutLog(){
+        try{    
+
+            const getWorkOut = await this.workOutLogRepository.getWorkOutLog();
+            return getWorkOut;
+
+        }catch(error){
+            console.log("Something went wrong at service layer for getWorkout");
             throw error;
         }
      }
